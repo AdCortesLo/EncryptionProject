@@ -64,7 +64,8 @@ public class NewMain
         byte[] hash = digest.digest(plainText.getBytes(StandardCharsets.UTF_8));
         String encoded = Base64.getEncoder().encodeToString(hash);
         System.out.println("Hash calculado inicialmente: " + encoded);
-        
+
+
         //Cifrar hash con clave privada del EMISOR       
         Cipher aesCipher = Cipher.getInstance("RSA");
         aesCipher.init(Cipher.ENCRYPT_MODE, prKeyEm);
