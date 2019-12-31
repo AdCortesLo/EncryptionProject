@@ -41,7 +41,6 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class Encriptar
 {
-
     /**
      * @param args the command line arguments
      */
@@ -88,37 +87,6 @@ public class Encriptar
             }
         } while (opcio != 4);
 
-    }
-
-    public static String readFile(String path, Charset encoding) throws Exception
-    {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
-    }
-
-    public static byte[] getFileInBytes(File f) throws IOException
-    {
-        FileInputStream fis = new FileInputStream(f);
-        byte[] fbytes = new byte[(int) f.length()];
-        fis.read(fbytes);
-        fis.close();
-        return fbytes;
-    }
-
-    public static PrivateKey getPrivate(String filename) throws Exception
-    {
-        byte[] keyBytes = Files.readAllBytes(new File(filename).toPath());
-        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-        return kf.generatePrivate(spec);
-    }
-
-    public static PublicKey getPublic(String filename) throws Exception
-    {
-        byte[] keyBytes = Files.readAllBytes(new File(filename).toPath());
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-        return kf.generatePublic(spec);
     }
 
     public static int menu()
@@ -271,5 +239,36 @@ public class Encriptar
             System.out.println("ERROR: Els hash NO coincideixen.");
         }
         System.out.println("");
+    }
+    
+    public static String readFile(String path, Charset encoding) throws Exception
+    {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, encoding);
+    }
+
+    public static byte[] getFileInBytes(File f) throws IOException
+    {
+        FileInputStream fis = new FileInputStream(f);
+        byte[] fbytes = new byte[(int) f.length()];
+        fis.read(fbytes);
+        fis.close();
+        return fbytes;
+    }
+
+    public static PrivateKey getPrivate(String filename) throws Exception
+    {
+        byte[] keyBytes = Files.readAllBytes(new File(filename).toPath());
+        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        return kf.generatePrivate(spec);
+    }
+
+    public static PublicKey getPublic(String filename) throws Exception
+    {
+        byte[] keyBytes = Files.readAllBytes(new File(filename).toPath());
+        X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        return kf.generatePublic(spec);
     }
 }
