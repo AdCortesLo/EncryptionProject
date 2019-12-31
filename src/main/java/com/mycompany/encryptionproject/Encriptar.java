@@ -60,7 +60,8 @@ public class Encriptar
         System.out.println("Benvingut.\n"
                 + "Hi ha dues parelles de claus generades per defecte, un parell pel receptor i un parell per l'emisor."
                 + "\nSi vols utilitzar les teves claus, hauràs de copiar el arxius amb extensió .txt a la carpeta del projecte,\na la mateixa altura que les carpetes src i target.\n"
-                + "");
+                + "Amb els noms:\n"
+                + "PublicKeyEMISOR.txt, PrivateKeyEMISOR.txt, PublicKeyRECEPTOR.txt, PrivateKeyRECEPTOR.txt\n");
         
         int opcio;
         do
@@ -136,7 +137,7 @@ public class Encriptar
         {
             stream.write(prKeyRe.getEncoded());
         }
-        System.out.println("Generades correctament.");
+        System.out.println("Generades correctament.\n");
     }
 
     public static void encriptar() throws FileNotFoundException, IOException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, Exception
