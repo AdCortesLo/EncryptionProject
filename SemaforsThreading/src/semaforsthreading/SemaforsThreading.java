@@ -5,7 +5,7 @@
  */
 package semaforsthreading;
 
-import exemplepilotes.Pilota;
+import exemplepilotes.PilotaY;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -28,7 +28,7 @@ import semaforsthreading.ExemplePilotes.Marc;
 public class SemaforsThreading {
 
     public static Graphics2D gr;
-    public static Pilota pilotes[]=new Pilota[200];
+    public static PilotaY pilotes[]=new PilotaY[200];
     public static int nPilotes=0;
     
     public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class SemaforsThreading {
                     marc1.addMouseListener(new MouseAdapter() {
                         public void mousePressed(MouseEvent me) {
                             Point p = me.getPoint();
-                            pilotes[nPilotes] = new Pilota(p);
+                            pilotes[nPilotes] = new PilotaY(p);
                             nPilotes++;
                         }
                     });
@@ -61,7 +61,7 @@ public class SemaforsThreading {
 class ExemplePilotes extends JPanel {
 
     public static Graphics2D gr;
-    public static Pilota pilotes[] = new Pilota[200];
+    public static PilotaY pilotes[] = new PilotaY[200];
     public static int nPilotes = 0;
 
     @Override
